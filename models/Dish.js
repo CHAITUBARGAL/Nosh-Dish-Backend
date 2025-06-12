@@ -22,15 +22,3 @@ const dishSchema = new mongoose.Schema({
 
 const Dish = mongoose.model("Dish", dishSchema);
 export default Dish;
-
-// import mongoose from "mongoose";
-
-// const dishSchema = new mongoose.Schema({
-//   dishId: String,
-//   dishName: String,
-//   imageUrl: String,
-//   isPublished: Boolean,
-// });
-
-// const Dish = mongoose.model("Dish", dishSchema);
-// export default Dish;
