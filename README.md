@@ -32,8 +32,9 @@ This is the backend service for **Nosh Dish**, built with **Express.js**, **Mong
 ### 1. Clone the repository
 
 ```bash
-git clone <your-backend-repo-url>
-cd your-backend-folder
+git clone https://github.com/CHAITUBARGAL/Nosh-Dish-Backend
+
+cd Nosh-Dish-Backend
 
 Install dependencies
 
@@ -41,4 +42,4 @@ npm install
 
 Start the server
 
-npm start
+node index.js
