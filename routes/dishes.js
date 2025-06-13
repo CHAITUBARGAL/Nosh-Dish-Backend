@@ -4,7 +4,6 @@ import { v4 as uuidv4 } from "uuid";
 
 const router = express.Router();
 
-
 router.get("/", async (req, res) => {
   try {
     const dishes = await Dish.find();
@@ -27,7 +26,6 @@ router.patch("/:id/toggle", async (req, res) => {
   }
 });
 
-// Add new dish
 router.post("/", async (req, res) => {
   try {
     const { dishName, imageUrl, isPublished } = req.body;
@@ -35,8 +33,15 @@ router.post("/", async (req, res) => {
       return res.status(400).send("Missing fields");
     }
 
+    const imageUrlPattern = /^(https?:\/\/.*\.(?:png|jpg|jpeg|gif|webp|svg))$/i;
+    if (!imageUrlPattern.test(imageUrl)) {
+      return res
+        .status(400)
+        .send("Invalid image URL. Must end with an image extension.");
+    }
+
     const newDish = new Dish({
-      dishId: uuidv4(), // auto-generated ID
+      dishId: uuidv4(),
       dishName,
       imageUrl,
       isPublished: isPublished ?? true,
